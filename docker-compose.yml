@@ -1,0 +1,8 @@
+php:
+  build: .
+  container_name: api-slim-php
+  ports:
+   - "80:80"
+   - "443:443"
+  volumes:
+   - ./html:/var/www/html
