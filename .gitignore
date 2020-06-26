@@ -74,3 +74,10 @@ fabric.properties
 
 #Vendor
 html/vendor/*
+/.idea/.gitignore
+/html/composer.lock
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/php_72_slim.iml
+/.idea/vcs.xml
