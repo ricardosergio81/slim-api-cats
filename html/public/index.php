@@ -1,9 +1,13 @@
 <?php
-require '../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-$configuration = require "../src/configuration.php";
-$app = new \Slim\App($configuration);
 
-require "../src/routes.php";
+$settings = require __DIR__ . '/../src/settings.php';
+$app = new \Slim\App($settings);
+
+
+require __DIR__ . '/../src/dependencies.php';
+
+require __DIR__ . '/../src/routes.php';
 
 $app->run();
