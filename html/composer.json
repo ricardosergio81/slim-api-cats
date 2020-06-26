@@ -27,7 +27,6 @@
     "psr-4": {
       "rs81\\Controllers\\": "src/Controllers",
       "rs81\\Models\\": "src/Models"
-      
     }
   }
 }
