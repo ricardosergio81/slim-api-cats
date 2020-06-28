@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: 'Slim Cat Api'
+  contact:
+    email: ricardosergio81@gmail.com
+  version: '0.1'
+paths:
+  '/breeds?name={name}':
+    get:
+      tags:
+        - cat
+      description: 'Return a list of cat''s breeds'
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Cat''s name to find'
+          required: true
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { type: string }, name: { type: string }, weight: { properties: { metric: { type: string }, imperial: { type: string } }, type: object }, cfa_url: { type: string }, vetstreet_url: { type: string }, vcahospitals_url: { type: string }, temperament: { type: string }, origin: { type: string }, country_codes: { type: string }, country_code: { type: string }, description: { type: string }, life_span: { type: string }, indoor: { type: integer }, lap: { type: integer }, alt_names: { type: string }, adaptability: { type: integer }, affection_level: { type: integer }, child_friendly: { type: integer }, dog_friendly: { type: integer }, energy_level: { type: integer }, grooming: { type: integer }, health_issues: { type: integer }, intelligence: { type: integer }, shedding_level: { type: integer }, social_needs: { type: integer }, stranger_friendly: { type: integer }, vocalisation: { type: integer }, experimental: { type: integer }, hairless: { type: integer }, natural: { type: integer }, rare: { type: integer }, rex: { type: integer }, suppressed_tail: { type: integer }, short_legs: { type: integer }, wikipedia_url: { type: string }, hypoallergenic: { type: integer } }
+                  type: object
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthorized
+        '500':
+          description: 'Internal Error'
+      security:
+        -
+          bearerAuth: []
+  /login:
+    post:
+      tags:
+        - login
+      description: 'API authentication'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  description: Username
+                  type: string
+                password:
+                  description: Password
+                  type: string
+              type: object
+      responses:
+        '200':
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                properties:
+                  jwt: { type: string }
+                type: object
+        '400':
+          description: 'Bad Request'
+        '500':
+          description: 'Internal Error'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      in: header
+      bearerFormat: JWT
+      scheme: bearer

@@ -75,3 +75,4 @@ fabric.properties
 
 #Vendor
 html/vendor/*
+html/composer.lock

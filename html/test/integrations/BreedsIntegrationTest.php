@@ -1,44 +1,33 @@
 <?php
+namespace rs81\test;
 
-use Slim\Http\Environment;
-use Slim\Http\Request;
-
-
-class BreedsIntegrationTest extends \PHPUnit\Framework\TestCase
+class BreedsIntegrationTest extends BaseTest
 {
-    protected $app;
-
-    public function setUp()
+    /** @test */
+    public function testPageNotFound()
     {
-     
-$settings = require __DIR__ . '/../../src/settings.php';
-   $this->app = new \Slim\App($settings);
-
+        $this->request('GET', '/breeds1');
+        $this->assertThatResponseHasStatus(404);
     }
 
-    public function testBreedsGet404() {
-//        $env = Environment::mock([
-//            'REQUEST_METHOD' => 'GET',
-//            'REQUEST_URI'    => '/',
-//            ]);
-//        $req = Request::createFromEnvironment($env);
-//        $this->app->getContainer()['request'] = $req;
-//        $response = $this->app->run(true);
-//        $this->assertSame($response->getStatusCode(), 404);
-//        #$this->assertSame((string)$response->getBody(), "Hello, Todo");
+    /** @test */
+    public function testBreeds()
+    {
+        $this->request('GET', '/breeds?name=a');
+        $this->assertThatResponseHasStatus(200);
     }
 
-    public function testBreedsGet200() {
-//        $env = Environment::mock([
-//            'REQUEST_METHOD' => 'GET',
-//            'REQUEST_URI'    => 'breeds?name=Abyssinian',
-//            ]);
-//
-//        $req = Request::createFromEnvironment($env);
-//        $this->app->getContainer()['request'] = $req;
-//        $response = $this->app->run(true);
-//        $this->assertSame($response->getStatusCode(), 200);
-//        #$this->assertSame((string)$response->getBody(), "Hello, Todo");
+    /** @test */
+    public function testBreedsBadRequestName1()
+    {
+        $this->request('GET', '/breeds?name1=a');
+        $this->assertThatResponseHasStatus(400);
     }
-
+	
+	/** @test */
+    public function testBreedsBadRequestWithoutName()
+    {
+        $this->request('GET', '/breeds');
+        $this->assertThatResponseHasStatus(400);
+    }
 }

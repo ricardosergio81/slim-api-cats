@@ -1,11 +1,9 @@
 <?php
 
-// database
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-$setting = include('settings.php');
-
+//#Define database connection
 $capsule = new Capsule;
-$capsule->addConnection($setting['settings']['db']);
+$capsule->addConnection($settings['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
