@@ -2,7 +2,10 @@
 API to search CAT's information
 
 ## Prerequisites
-[Docker-composer](https://docs.docker.com/compose/install/)
+[Composer](https://getcomposer.org/) - A Dependency Manager for PHP.
+
+[Docker-composer](https://docs.docker.com/compose/install/) - Compose is a tool for defining and running multi-container Docker applications.
+
 
 ## Configuration
 Docker UP
@@ -13,26 +16,44 @@ docker-composer up -d
 
 Access html folder
 ```bash
-$ cd html
+cd html
 ```
 
 Install dependencies
 ```bash
-$ composer install
+composer install
 ```
 
 Migrations
 ```bash
-$ vendor/davedevelopment/phpmig/bin/phpmig migrate
+./vendor/bin/phpmig migrate
 ```
 
-## Test 
+## To test 
 PHPunit test
 ```bash
-$ vendor/phpunit/phpunit/phpunit test
+./vendor/bin/phpunit test
 ```
 
 ## Documentation
 Swagger Documentation
 
 Access [http://localhost/swagger/](http://localhost/swagger/)
+
+## Directory Structure 
+
+```
+root
+└── html
+    ├── migrations
+    ├── public
+    │   └── swagger
+    ├── src
+    │   ├── Controlles
+	│   ├── Models
+    │   └── Resources
+    ├── swagger
+    ├── teste
+    │   └── integrations
+    └── vendor
+```

@@ -9,7 +9,7 @@ use rs81\Resources\BreedResource as BreedResource;
 /**
  * @OA\Get(
  *     tags={"cat"},
- *     path="/breeds?name={name}",
+ *     path="/breeds",
  *     description="Return a list of cat's breeds",
  *     security={{"bearerAuth":{}}}, 
  *     @OA\Parameter(

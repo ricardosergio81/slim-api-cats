@@ -7,7 +7,9 @@ use rs81\Controllers as Controllers ;
  *      title="Slim Cat Api",
  *      version="0.1",
  *      @OA\Contact(
- *          email="ricardosergio81@gmail.com"
+ *          name="Ricardo Sergio Rosa",
+ *          email="ricardosergio81@gmail.com",
+ *          url="http://github.com/ricardosergio81/slim-api-cats" 
  *      )
  * )
  *
@@ -15,9 +17,7 @@ use rs81\Controllers as Controllers ;
  *      securityScheme="bearerAuth",
  *      in="header",
  *      name="Authorization",
- *      type="apiKey",
- *      scheme="bearer",
- *      bearerFormat="JWT",
+ *      type="apiKey"
  * )
  *
  */

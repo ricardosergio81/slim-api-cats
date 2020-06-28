@@ -2,10 +2,12 @@ openapi: 3.0.0
 info:
   title: 'Slim Cat Api'
   contact:
+    name: 'Ricardo Sergio Rosa'
+    url: 'http://github.com/ricardosergio81/slim-api-cats'
     email: ricardosergio81@gmail.com
   version: '0.1'
 paths:
-  '/breeds?name={name}':
+  /breeds:
     get:
       tags:
         - cat
@@ -75,5 +77,3 @@ components:
       type: apiKey
       name: Authorization
       in: header
-      bearerFormat: JWT
-      scheme: bearer
