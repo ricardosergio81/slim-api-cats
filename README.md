@@ -53,7 +53,7 @@ root
     │   ├── Models
     │   └── Resources
     ├── swagger
-    ├── teste
+    ├── test
     │   └── integrations
     └── vendor
 ```
